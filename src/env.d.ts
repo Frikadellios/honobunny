@@ -8,7 +8,7 @@ declare namespace App {
 }
 
 interface ImportMetaEnv {
-	readonly NODE_VERSION: string
+	readonly NODE_V: string
 	readonly KEYSTATIC_REPO_OWNER: string
 	readonly KEYSTATIC_REPO_NAME: string
 	readonly KEYSTATIC_GITHUB_CLIENT_ID: string
