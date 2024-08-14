@@ -10,7 +10,7 @@
     "dev": "bunx --bun astro dev",
     "start": "bun wrangler types && bun astro check --verbose && bunx --bun astro dev --verbose",
     "checker": "conc bun:check:*",
-    "build": "bun wrangler types && bun astro check --verbose && bunx --bun astro build --verbose",
+    "build": "bun wrangler types && bunx --bun astro build",
     "preview": "bunx --bun astro build --verbose && bun wrangler pages dev ./dist",
     "astro": "astro",
     "deploy": "bunx --bun astro build && bun wrangler pages deploy ./dist",
