@@ -1,0 +1,15 @@
+---
+interface Props {
+  title: string
+}
+
+const { title } = Astro.props
+---
+
+<nav class='container-fluid'>
+  <ul>
+    <li>
+      <a href='/' class='contrast'><strong>{title}</strong></a>
+    </li>
+  </ul>
+</nav>

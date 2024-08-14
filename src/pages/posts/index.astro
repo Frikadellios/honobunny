@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content'
+import Layout from '@/layouts/Layout.astro'
+
+const posts = await getCollection('posts')
+---
+
+<Layout>
+  <main class='container-fluid'>
+    <h1>Posts List</h1>
+    <section>
+      {
+        posts.map((post) => (
+          <article>
+            <h2>
+              <a href={`/${post.slug}`}>{post.data.title}</a>
+            </h2>
+          </article>
+        ))
+      }
+    </section>
+    <section>
+      <p><i>Created with Keystatic.</i></p>
+    </section>
+  </main>
+</Layout>

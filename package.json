@@ -1,20 +1,37 @@
 {
   "name": "honobunny",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.1",
+  "description": "test with astro keystatic and cloudflare",
+  "keywords": [],
+  "author": "Hrihorii Ilin <devopsick@pm.me>",
+  "license": "ISC",
   "scripts": {
     "dev": "bunx --bun astro dev",
     "start": "bun wrangler types && bun astro check --verbose && bunx --bun astro dev --verbose",
+    "checker": "conc bun:check:*",
     "build": "bun wrangler types && bun astro check --verbose && bunx --bun astro build --verbose",
     "preview": "bunx --bun astro build --verbose && bun wrangler pages dev ./dist",
     "astro": "astro",
     "deploy": "bunx --bun astro build && bun wrangler pages deploy ./dist",
-    "cf-typegen": "wrangler types"
+    "check:cf-typegen": "bun wrangler types",
+    "check:astro": "bun astro check --verbose",
+    "check:format": "bunx @biomejs/biome format . --write",
+    "format": "biome format . --write",
+    "lint": "biome lint .",
+    "lint:fix": "biome lint . --apply",
+    "lint:fix:unsafe": "biome lint . --apply-unsafe",
+    "biomes": "bunx @biomejs/biome check --write .",
+    "biomes:fix": "bunx @biomejs/biome check --fix --unsafe .",
+    "tailwind:cli": "bunx @tailwindcss/cli@next -i ./src/styles/app.css -o ./src/styles/dist/app.css"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.2",
     "@astrojs/cloudflare": "^11.0.4",
+    "@astrojs/markdoc": "^0.11.3",
     "@astrojs/react": "^3.6.2",
+    "@keystatic/astro": "^5.0.0",
+    "@keystatic/core": "^0.5.32",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "astro": "^4.13.3",
@@ -23,16 +40,15 @@
     "typescript": "^5.5.4"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.8.3",
     "@cloudflare/workers-types": "^4.20240806.0",
     "@types/bun": "latest",
     "@types/node": "^22.2.0",
+    "concurrently": "^8.2.2",
     "wrangler": "^3.71.0"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
-  "description": "```sh npm create astro@latest -- --template minimal ```",
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "trustedDependencies": ["@biomejs/biome"]
 }

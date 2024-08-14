@@ -1,9 +1,7 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "types": [
-      "@cloudflare/workers-types/2023-07-01"
-    ],
+    "types": ["@cloudflare/workers-types/2023-07-01"],
     "verbatimModuleSyntax": true,
     "strictNullChecks": true,
     "jsx": "react-jsx",
@@ -13,7 +11,5 @@
       "@/*": ["src/*"]
     }
   },
-  "exclude": [
-    "dist"
-  ]
+  "exclude": ["dist"]
 }
