@@ -1,4 +1,16 @@
 {
-  "recommendations": ["astro-build.astro-vscode"],
+  "recommendations": [
+    "astro-build.astro-vscode",
+    "mhutchie.git-graph",
+    "EditorConfig.EditorConfig",
+    "oven.bun-vscode",
+    "biomejs.biome",
+    "stripe.markdoc-language-support",
+    "unifiedjs.vscode-mdx",
+    "bradlc.vscode-tailwindcss",
+    "johnsoncodehk.volarjs-labs",
+    "vue.volar",
+    "christian-kohler.npm-intellisense"
+  ],
   "unwantedRecommendations": []
 }

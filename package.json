@@ -3,22 +3,36 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro build && wrangler pages dev",
+    "dev": "bunx --bun astro dev",
+    "start": "bun wrangler types && bun astro check --verbose && bunx --bun astro dev --verbose",
+    "build": "bun wrangler types && bun astro check --verbose && bunx --bun astro build --verbose",
+    "preview": "bunx --bun astro build --verbose && bun wrangler pages dev ./dist",
     "astro": "astro",
-    "deploy": "astro build && wrangler pages deploy",
+    "deploy": "bunx --bun astro build && bun wrangler pages deploy ./dist",
     "cf-typegen": "wrangler types"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.2",
     "@astrojs/cloudflare": "^11.0.4",
+    "@astrojs/react": "^3.6.2",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
     "astro": "^4.13.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "typescript": "^5.5.4"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240806.0",
+    "@types/bun": "latest",
+    "@types/node": "^22.2.0",
     "wrangler": "^3.71.0"
-  }
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "description": "```sh npm create astro@latest -- --template minimal ```",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
