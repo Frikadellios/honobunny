@@ -1,5 +1,11 @@
 /// <reference path="../.astro/types.d.ts" />
 /// <reference types="astro/client" />
+/// <reference lib="dom" />
+/// <reference lib="dom.iterable" />
+/// <reference types="astro/astro-jsx" />
+/// <reference types="vite-plugin-pwa/info" />
+/// <reference types="vite-plugin-pwa/pwa-assets" />
+/// <reference types="vite-plugin-pwa/vanillajs" />
 
 type Runtime = import('@astrojs/cloudflare').Runtime<Env>
 

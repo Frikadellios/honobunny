@@ -2,7 +2,11 @@
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     "types": [
-      "@cloudflare/workers-types/2023-07-01"
+      "@cloudflare/workers-types/2023-07-01",
+      "astro/types",
+      "vite-plugin-pwa/vanillajs",
+      "vite-plugin-pwa/pwa-assets",
+      "vite-plugin-pwa/info"
     ],
     "strictNullChecks": true,
     "lib": [

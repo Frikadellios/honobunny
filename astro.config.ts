@@ -6,17 +6,28 @@ import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 import keystatic from '@keystatic/astro'
 import tailwindcss from '@tailwindcss/vite'
+import AstroPWA from '@vite-pwa/astro'
 import robotsTxt from 'astro-robots-txt'
 import { defineConfig } from 'astro/config'
 import rehypeExternalLinks from 'rehype-external-links'
-import { remarkReadingTime } from './src/lib/readTime'
+import type { ManifestOptions } from 'vite-plugin-pwa'
+import { remarkReadingTime } from './src/lib/readTime.ts'
 import { SITE } from './src/site.config.ts'
+import manifest from './webmanifest.json'
 
 // https://astro.build/config
 export default defineConfig({
 	vite: {
+		logLevel: 'info',
+		server: {
+			fs: {
+				// Allow serving files from hoisted root node_modules
+				allow: ['../..']
+			}
+		},
 		define: {
-			'process.env': process.env
+			'process.env': process.env,
+			__DATE__: `'${new Date().toISOString()}'`
 		},
 		plugins: [tailwindcss()],
 		build: {
@@ -51,7 +62,32 @@ export default defineConfig({
 		react(),
 		markdoc(),
 		keystatic(),
-		mdx()
+		mdx(),
+		AstroPWA({
+			base: '/',
+			scope: '/',
+			includeAssets: ['favicon.svg'],
+			pwaAssets: {
+				config: true
+			},
+			workbox: {
+				skipWaiting: true,
+				clientsClaim: true,
+				navigateFallback: '/404',
+				ignoreURLParametersMatching: [/./],
+				globPatterns: ['**/*.{html,js,css,png,svg,json,ttf,ico,txt,jpeg,png}']
+			},
+			experimental: {
+				directoryAndTrailingSlashHandler: true
+			},
+			devOptions: {
+				enabled: true,
+				navigateFallbackAllowlist: [/^\//]
+			},
+			mode: 'production',
+			registerType: 'autoUpdate',
+			manifest: manifest as Partial<ManifestOptions>
+		})
 	],
 	markdown: {
 		rehypePlugins: [

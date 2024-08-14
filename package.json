@@ -28,6 +28,7 @@
     "lint:fix:unsafe": "biome lint . --apply-unsafe",
     "biomes": "bunx @biomejs/biome check --write .",
     "biomes:fix": "bunx @biomejs/biome check --fix --unsafe .",
+    "generate-pwa-assets": "pwa-assets-generator",
     "tailwind:cli": "bunx @tailwindcss/cli@next -i ./src/styles/app.css -o ./src/styles/dist/app.css"
   },
   "dependencies": {
@@ -67,8 +68,11 @@
     "@cloudflare/workers-types": "^4.20240806.0",
     "@types/bun": "latest",
     "@types/node": "^22.3.0",
+    "@vite-pwa/assets-generator": "^0.2.4",
+    "@vite-pwa/astro": "^0.4.0",
     "concurrently": "^8.2.2",
     "editorconfig-checker": "^5.1.8",
+    "workbox-window": "^7.1.0",
     "wrangler": "^3.71.0"
   },
   "peerDependencies": {
