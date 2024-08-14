@@ -16,7 +16,6 @@ interface ImportMetaEnv {
 	readonly KEYSTATIC_SECRET: string
 	readonly PUBLIC_KEYSTATIC_GITHUB_APP_SLUG: string
 	readonly CLOUDFLARE_ACCOUNT_ID: string
-	readonly CLOUDFLARE_API_TOKEN: string
 	readonly CLOUDFLARE_PROJECT_NAME: string
 }
 

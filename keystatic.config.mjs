@@ -1,14 +1,10 @@
 import { collection, config, fields } from '@keystatic/core'
 
 export default config({
-	storage: import.meta.env.DEV
-		? {
-				kind: 'local'
-			}
-		: {
-				kind: 'github',
-				repo: 'Frikadellios/honobunny'
-			},
+	storage: {
+		kind: 'github',
+		repo: 'Frikadellios/honobunny'
+	},
 	collections: {
 		posts: collection({
 			label: 'Posts',
