@@ -5,12 +5,17 @@ import keystatic from '@keystatic/astro'
 import { defineConfig } from 'astro/config'
 
 // https://astro.build/config
+import tailwindcss from '@tailwindcss/vite'
+
 export default defineConfig({
-  output: 'hybrid',
-  adapter: cloudflare({
-    platformProxy: {
-      enabled: true
-    }
-  }),
-  integrations: [react(), markdoc(), keystatic()]
+	vite: {
+		plugins: [tailwindcss()]
+	},
+	output: 'hybrid',
+	adapter: cloudflare({
+		platformProxy: {
+			enabled: true
+		}
+	}),
+	integrations: [react(), markdoc(), keystatic()]
 })
