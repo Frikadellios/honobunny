@@ -35,7 +35,7 @@ export default defineConfig({
 		}),
 		robotsTxt({
 			sitemap: 'https://www.honobunny.pages.dev/sitemap-0.xml',
-			host: 'devopsick.com'
+			host: 'honobunny'
 		}),
 		partytown({
 			config: {
